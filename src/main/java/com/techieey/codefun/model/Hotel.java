@@ -1,34 +1,32 @@
 package com.techieey.codefun.model;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Hotel {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    @NotNull
+    private String hotelid;
     private String country;
-    @NotNull
     private String city;
-    @NotNull
-    private long phnumber;
-    public Hotel(Integer id, String country, String city, long phnumber) {
-        this.id = id;
-        this.country = country;
-        this.city = city;
-        this.phnumber = phnumber;
-    }
+    private Long phno;
+
+    
+
     public Hotel() {
     }
-    public Integer getId() {
-        return id;
+    
+    public Hotel(String hotelid, String country, String city, Long phno) {
+        this.hotelid = hotelid;
+        this.country = country;
+        this.city = city;
+        this.phno = phno;
     }
-    public void setId(Integer id) {
-        this.id = id;
+    public String getHotelid() {
+        return hotelid;
+    }
+    public void setHotelid(String hotelid) {
+        this.hotelid = hotelid;
     }
     public String getCountry() {
         return country;
@@ -42,11 +40,12 @@ public class Hotel {
     public void setCity(String city) {
         this.city = city;
     }
-    public long getPhnumber() {
-        return phnumber;
+    public Long getPhno() {
+        return phno;
     }
-    public void setPhnumber(long phnumber) {
-        this.phnumber = phnumber;
+    public void setPhno(Long phno) {
+        this.phno = phno;
     }
+
     
 }
