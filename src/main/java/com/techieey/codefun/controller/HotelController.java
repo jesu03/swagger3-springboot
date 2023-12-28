@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techieey.codefun.model.Hotel;
-import com.techieey.codefun.repository.HotelRepository;
+import com.techieey.codefun.service.HotelService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -17,18 +17,17 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RequestMapping("/api/hotels")
 public class HotelController{
         @Autowired
-        private HotelRepository hotelRepository;
+        private HotelService hotelService;
         
-        @GetMapping("/")
+        @GetMapping(value="/")
         public List<Hotel> getAll(){
-            return hotelRepository.findAll();
+            return hotelService.findAll();
         }
 
-        @PostMapping("/post")
+        @PostMapping(value="/posts")
         public List<Hotel> persist(@RequestBody Hotel hotel){
-            hotelRepository.save(hotel);
-            return hotelRepository.findAll();          
+            hotelService.save(hotel);
+            return hotelService.findAll();          
         }
-
 
 }

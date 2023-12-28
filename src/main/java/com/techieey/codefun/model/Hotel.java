@@ -1,31 +1,34 @@
 package com.techieey.codefun.model;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Hotel {
     @Id
-    private String hotelid;
-    private String country;
-    private String city;
-    private Long phno;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer hotelid;
 
-    
+    private String country;
+
+    private String city;
+
+    private Long phno;
 
     public Hotel() {
     }
     
-    public Hotel(String hotelid, String country, String city, Long phno) {
-        this.hotelid = hotelid;
+    public Hotel(String country, String city, Long phno) {
         this.country = country;
         this.city = city;
         this.phno = phno;
     }
-    public String getHotelid() {
+
+    public Integer getHotelid() {
         return hotelid;
     }
-    public void setHotelid(String hotelid) {
+    public void setHotelid(Integer hotelid) {
         this.hotelid = hotelid;
     }
     public String getCountry() {
@@ -46,6 +49,4 @@ public class Hotel {
     public void setPhno(Long phno) {
         this.phno = phno;
     }
-
-    
 }
